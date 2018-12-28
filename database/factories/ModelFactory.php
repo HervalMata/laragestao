@@ -12,13 +12,27 @@
 */
 
 /** @var \Illuminate\Database\Eloquent\Factory $factory */
-$factory->define(App\User::class, function (Faker\Generator $faker) {
-    static $password;
+$factory->define(App\Models\Unit::class, function (Faker\Generator $faker) {
 
     return [
+        'name' => $faker->unique()->word,
+        'sector' => $faker->word,
+        'state' => collect(\App\Models\State::$states)->random(),
+        'city' => $faker->city,
+    ];
+});
+
+/** @var \Illuminate\Database\Eloquent\Factory $factory */
+$factory->define(App\Models\User::class, function (Faker\Generator $faker) {
+    static $password;
+    $unit = factory(\App\Models\Unit::class)->create();
+
+    return [
+        'enrolment' => str_random(4)->unique(),
         'name' => $faker->name,
-        'email' => $faker->unique()->safeEmail,
+        'email' => $faker->safeEmail,
         'password' => $password ?: $password = bcrypt('secret'),
+        'unit_id' => $unit->id,
         'remember_token' => str_random(10),
     ];
 });
