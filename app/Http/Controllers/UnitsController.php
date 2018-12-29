@@ -25,7 +25,7 @@ class UnitsController extends Controller
      */
     public function create()
     {
-        //
+        return view('units.create');
     }
 
     /**
@@ -36,7 +36,8 @@ class UnitsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Unit::create($request->all());
+        return redirect()->route('units.index');
     }
 
     /**
