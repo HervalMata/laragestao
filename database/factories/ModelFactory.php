@@ -28,7 +28,7 @@ $factory->define(App\Models\User::class, function (Faker\Generator $faker) {
     $unit = factory(\App\Models\Unit::class)->create();
 
     return [
-        'enrolment' => str_random(4)->unique(),
+        'enrolment' => str_random(4),
         'name' => $faker->name,
         'email' => $faker->safeEmail,
         'password' => $password ?: $password = bcrypt('secret'),
