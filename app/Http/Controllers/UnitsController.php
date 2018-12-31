@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Unit;
+use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Http\Request;
 
 class UnitsController extends Controller
@@ -57,9 +58,9 @@ class UnitsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Unit $unit)
     {
-        //
+        return view('units.edit', compact('unit'));
     }
 
     /**
@@ -69,9 +70,12 @@ class UnitsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Unit $unit)
     {
-        //
+        $unit->fill($request->all());
+        $unit->save();
+
+        return redirect()->route('units.index');
     }
 
     /**
@@ -80,8 +84,9 @@ class UnitsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Unit $unit)
     {
-        //
+        $unit->delete();
+        return redirect()->route('units.index');
     }
 }
