@@ -7,23 +7,24 @@
             {!! Button::success('Nova Unidade')->asLinkTo(route('units.create')) !!}
         </div>
         <div class="row">
+<!--            --><?php //dd($units); ?>
             {!!
-                Table::withContents($units->items())->striped()
-                    ->callback('Ações', function ($field, $unit) {
-                        $linkEdit = route('units.edit', ['unit' => $unit->id]);
-                        $linkDestroy = route('units.destroy', ['unit' => $unit->id]);
-                        $deleteForm = "delete-form-{$unit->id}";
-                        $form = Form::open(['route' => ['units.destroy', 'unity' => $unit->id],
-                            'method' => 'DELETE', 'id' => $deleteForm, 'style' => 'display:none']).Form::close();
-                            $anchorDestroy = Button::link('Excluir')->asLinkTo($linkDestroy)->addAttributes([
-                            'onclick' => "event.preventDefault();document.getElementById(\"{$deleteForm}\").submit();"]);
-                        return "<ul class=\"list-inline\">".
-                        "<li>".Button::link('Editar')->asLinkTo($linkEdit)."</li>".
-                        "<li>|</li>".
-                        "<li>".$anchorDestroy."</li>".
-                        "</ul>".$form;
-                    })
-            !!}
+            Table::withContents(
+                $units->items()
+                )->striped()->bordered()
+                ->callback('Editar', function($field, $unit){
+                    return Button::warning('Editar')->asLinkTo(route('units.edit', ['unit' => $unit->id]));
+                })
+                ->callback('Excluir', function ($field, $unit){
+                    $deleteForm = "delete-form-{$unit->id}";
+                    $form = Form::open(['route' => ['units.destroy', 'unit' => $unit->id],
+                             'method' => 'DELETE', 'style' => 'display:none', 'id' => $deleteForm]).
+                             Form::close();
+                    return Button::danger('Excluir')->asLinkTo(route('units.destroy', ['unit' => $unit->id]))
+                            ->addAttributes([
+                                'onclick' => "event.preventDefault();document.getElementById(\"{$deleteForm}\").submit();"
+                            ]).$form;
+                }) !!}
             {{ $units->links() }}
         </div>
     </div>

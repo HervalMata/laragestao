@@ -4,11 +4,22 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\UnitRequest;
 use App\Models\Unit;
+use App\Repositories\UnitRepository;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Http\Request;
 
 class UnitsController extends Controller
 {
+    /**
+     * @var UnitRepository
+     */
+    private $repository;
+
+    public function __construct(UnitRepository $repository)
+    {
+        $this->repository = $repository;
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -16,7 +27,7 @@ class UnitsController extends Controller
      */
     public function index()
     {
-        $units = Unit::query()->paginate(10);
+        $units = $this->repository->paginate(10);
         return view('units.index', compact('units'));
     }
 
@@ -38,9 +49,9 @@ class UnitsController extends Controller
      */
     public function store(UnitRequest $request)
     {
-        Unit::create($request->all());
-        $url = $request->get('redirect_To', route('units.index'));
-        $request->session()->flash('message', 'Unidade cadastrada com sucesso.');
+        $this->repository->create($request->all());
+        $url = $request->get('redirectTo', route('units.index'));
+        $request->session()->flash('message', 'Unidade cadastrada com sucesso!');
         return redirect()->to($url);
     }
 
@@ -61,8 +72,9 @@ class UnitsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Unit $unit)
+    public function edit($id)
     {
+        $unit = $this->repository->find($id);
         return view('units.edit', compact('unit'));
     }
 
@@ -73,12 +85,11 @@ class UnitsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(UnitRequest $request, Unit $unit)
+    public function update(UnitRequest $request, $id)
     {
-        $unit->fill($request->all());
-        $unit->save();
-        $url = $request->get('redirec_tTo', route('units.index'));
-        $request->session()->flash('message', 'Unidade atualizada com sucesso.');
+        $this->repository->update($request->all(), $id);
+        $url = $request->get('redirectTo', route('units.index'));
+        $request->session()->flash('message', 'Unidade atualizada com sucesso!');
         return redirect()->to($url);
     }
 
@@ -88,11 +99,10 @@ class UnitsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Unit $unit)
+    public function destroy($id)
     {
-        $unit->delete();
-        $url = redirect()->route('units.index');
-        \Session::flash('message', 'Unidade removida com sucesso.');
+        $this->repository->delete($id);
+        \Session::flash('message', 'Unidade removida com sucesso!');
         return redirect()->to(\URL::previous());
     }
 }

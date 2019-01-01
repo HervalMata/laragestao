@@ -11,7 +11,7 @@ class Unit extends Model implements TableInterface
         'name',
         'sector',
         'state',
-        'city'
+        'city',
     ];
 
     /**

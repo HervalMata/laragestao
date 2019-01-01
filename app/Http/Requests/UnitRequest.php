@@ -23,8 +23,7 @@ class UnitRequest extends FormRequest
      */
     public function rules()
     {
-        $unit = $this->route('unit');
-        $id = $unit ? $unit->id:NULL;
+        $id = $this->route('unit');
         return [
             'name' => "required|min:3|max:20|unique:units,name,$id",
             'sector' => 'required|min:3|max:20',

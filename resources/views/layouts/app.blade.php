@@ -24,39 +24,40 @@
 <body>
     <div id="app">
         <?php
-            $navbar = Navbar::withBrand(config('app.name'), url('/'))->inverse();
-            if (Auth::check()) {
-                    $links = Navigation::links([
+        $navbar = Navbar::withBrand(config('app.name'), url('/'))->inverse();
+        if (Auth::check()) {
+            $links = Navigation::links([
+                [
+                    'link' => route('units.index'),
+                    'title' => 'Unidades'
+                ]
+            ]);
+            $logout = Navigation::links([
+                [
+                    Auth::user()->name,
+                    [
                         [
-                            'link' => route('units.index'),
-                            'title' => 'Unidades'
-                        ]
-                    ]);
-                    $logout = Navigation::links([
-                        [
-                            Auth::user()->name,
-                            [
-                                [
-                                'link' => url("/logout"),
-                                'title' => 'Sair',
-                                'linkAttributes' => [
-                                    'onclick' => "event.preventDefault();document.getElementById(\"logout-form\").submit();"
-                                    ]
-                                ]
+                            'link' => url("/logout"),
+                            'title' => 'Sair',
+                            'linkAttributes' => [
+                                'onclick' => "event.preventDefault();document.getElementById(\"logout-form\").submit();"
                             ]
                         ]
-                    ])->right();
-                    $navbar->withContent($links)->withContent($logout);
-                    }
+                    ]
+                ]
+            ])->right();
+            $navbar->withContent($links)->withContent($logout);
+        }
         ?>
         {!! $navbar !!}
         {!! Form::open(['url' => url('/logout'), 'id' => 'logout-form', 'style' => 'display:none']) !!}
         {!! Form::close() !!}
         @if(Session::has('message'))
             <div class="container">
-                {!! Alert::success(Session::get('message'))->close() !!}
+               {!! Alert::success(Session::get('message')) !!}
             </div>
         @endif
+
         @yield('content')
     </div>
 

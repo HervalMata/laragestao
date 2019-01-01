@@ -3,7 +3,7 @@ namespace PHPSTORM_META {
 
    /**
     * PhpStorm Meta file, to provide autocomplete information for PhpStorm
-    * Generated on 2019-01-01 01:06:17.
+    * Generated on 2019-01-01 22:13:33.
     *
     * @author Barry vd. Heuvel <barryvdh@gmail.com>
     * @see https://github.com/barryvdh/laravel-ide-helper
@@ -67,7 +67,10 @@ namespace PHPSTORM_META {
         'command.ide-helper.models' => \Barryvdh\LaravelIdeHelper\Console\ModelsCommand::class,
         'command.ide-helper.meta' => \Barryvdh\LaravelIdeHelper\Console\MetaCommand::class,
         'command.ide-helper.eloquent' => \Barryvdh\LaravelIdeHelper\Console\EloquentCommand::class,
+        'App\Repositories\UnitRepository' => \App\Repositories\UnitRepositoryEloquent::class,
         'blade.compiler' => \Illuminate\View\Compilers\BladeCompiler::class,
+        'translation.loader' => \Illuminate\Translation\FileLoader::class,
+        'translator' => \Illuminate\Translation\Translator::class,
         'html' => \Collective\Html\HtmlBuilder::class,
         'form' => \Collective\Html\FormBuilder::class,
         'Illuminate\Broadcasting\BroadcastManager' => \Illuminate\Broadcasting\BroadcastManager::class,
@@ -147,8 +150,6 @@ namespace PHPSTORM_META {
         'queue.failer' => \Illuminate\Queue\Failed\DatabaseFailedJobProvider::class,
         'auth.password' => \Illuminate\Auth\Passwords\PasswordBrokerManager::class,
         'auth.password.broker' => \Illuminate\Auth\Passwords\PasswordBroker::class,
-        'translation.loader' => \Illuminate\Translation\FileLoader::class,
-        'translator' => \Illuminate\Translation\Translator::class,
         'validation.presence' => \Illuminate\Validation\DatabasePresenceVerifier::class,
     ]));
     override(\Illuminate\Contracts\Container\Container::make(0), map([
@@ -210,7 +211,10 @@ namespace PHPSTORM_META {
         'command.ide-helper.models' => \Barryvdh\LaravelIdeHelper\Console\ModelsCommand::class,
         'command.ide-helper.meta' => \Barryvdh\LaravelIdeHelper\Console\MetaCommand::class,
         'command.ide-helper.eloquent' => \Barryvdh\LaravelIdeHelper\Console\EloquentCommand::class,
+        'App\Repositories\UnitRepository' => \App\Repositories\UnitRepositoryEloquent::class,
         'blade.compiler' => \Illuminate\View\Compilers\BladeCompiler::class,
+        'translation.loader' => \Illuminate\Translation\FileLoader::class,
+        'translator' => \Illuminate\Translation\Translator::class,
         'html' => \Collective\Html\HtmlBuilder::class,
         'form' => \Collective\Html\FormBuilder::class,
         'Illuminate\Broadcasting\BroadcastManager' => \Illuminate\Broadcasting\BroadcastManager::class,
@@ -290,8 +294,6 @@ namespace PHPSTORM_META {
         'queue.failer' => \Illuminate\Queue\Failed\DatabaseFailedJobProvider::class,
         'auth.password' => \Illuminate\Auth\Passwords\PasswordBrokerManager::class,
         'auth.password.broker' => \Illuminate\Auth\Passwords\PasswordBroker::class,
-        'translation.loader' => \Illuminate\Translation\FileLoader::class,
-        'translator' => \Illuminate\Translation\Translator::class,
         'validation.presence' => \Illuminate\Validation\DatabasePresenceVerifier::class,
     ]));
     override(\Illuminate\Contracts\Container\Container::makeWith(0), map([
@@ -353,7 +355,10 @@ namespace PHPSTORM_META {
         'command.ide-helper.models' => \Barryvdh\LaravelIdeHelper\Console\ModelsCommand::class,
         'command.ide-helper.meta' => \Barryvdh\LaravelIdeHelper\Console\MetaCommand::class,
         'command.ide-helper.eloquent' => \Barryvdh\LaravelIdeHelper\Console\EloquentCommand::class,
+        'App\Repositories\UnitRepository' => \App\Repositories\UnitRepositoryEloquent::class,
         'blade.compiler' => \Illuminate\View\Compilers\BladeCompiler::class,
+        'translation.loader' => \Illuminate\Translation\FileLoader::class,
+        'translator' => \Illuminate\Translation\Translator::class,
         'html' => \Collective\Html\HtmlBuilder::class,
         'form' => \Collective\Html\FormBuilder::class,
         'Illuminate\Broadcasting\BroadcastManager' => \Illuminate\Broadcasting\BroadcastManager::class,
@@ -433,8 +438,6 @@ namespace PHPSTORM_META {
         'queue.failer' => \Illuminate\Queue\Failed\DatabaseFailedJobProvider::class,
         'auth.password' => \Illuminate\Auth\Passwords\PasswordBrokerManager::class,
         'auth.password.broker' => \Illuminate\Auth\Passwords\PasswordBroker::class,
-        'translation.loader' => \Illuminate\Translation\FileLoader::class,
-        'translator' => \Illuminate\Translation\Translator::class,
         'validation.presence' => \Illuminate\Validation\DatabasePresenceVerifier::class,
     ]));
     override(\App::make(0), map([
@@ -496,7 +499,10 @@ namespace PHPSTORM_META {
         'command.ide-helper.models' => \Barryvdh\LaravelIdeHelper\Console\ModelsCommand::class,
         'command.ide-helper.meta' => \Barryvdh\LaravelIdeHelper\Console\MetaCommand::class,
         'command.ide-helper.eloquent' => \Barryvdh\LaravelIdeHelper\Console\EloquentCommand::class,
+        'App\Repositories\UnitRepository' => \App\Repositories\UnitRepositoryEloquent::class,
         'blade.compiler' => \Illuminate\View\Compilers\BladeCompiler::class,
+        'translation.loader' => \Illuminate\Translation\FileLoader::class,
+        'translator' => \Illuminate\Translation\Translator::class,
         'html' => \Collective\Html\HtmlBuilder::class,
         'form' => \Collective\Html\FormBuilder::class,
         'Illuminate\Broadcasting\BroadcastManager' => \Illuminate\Broadcasting\BroadcastManager::class,
@@ -576,8 +582,6 @@ namespace PHPSTORM_META {
         'queue.failer' => \Illuminate\Queue\Failed\DatabaseFailedJobProvider::class,
         'auth.password' => \Illuminate\Auth\Passwords\PasswordBrokerManager::class,
         'auth.password.broker' => \Illuminate\Auth\Passwords\PasswordBroker::class,
-        'translation.loader' => \Illuminate\Translation\FileLoader::class,
-        'translator' => \Illuminate\Translation\Translator::class,
         'validation.presence' => \Illuminate\Validation\DatabasePresenceVerifier::class,
     ]));
     override(\App::makeWith(0), map([
@@ -639,7 +643,10 @@ namespace PHPSTORM_META {
         'command.ide-helper.models' => \Barryvdh\LaravelIdeHelper\Console\ModelsCommand::class,
         'command.ide-helper.meta' => \Barryvdh\LaravelIdeHelper\Console\MetaCommand::class,
         'command.ide-helper.eloquent' => \Barryvdh\LaravelIdeHelper\Console\EloquentCommand::class,
+        'App\Repositories\UnitRepository' => \App\Repositories\UnitRepositoryEloquent::class,
         'blade.compiler' => \Illuminate\View\Compilers\BladeCompiler::class,
+        'translation.loader' => \Illuminate\Translation\FileLoader::class,
+        'translator' => \Illuminate\Translation\Translator::class,
         'html' => \Collective\Html\HtmlBuilder::class,
         'form' => \Collective\Html\FormBuilder::class,
         'Illuminate\Broadcasting\BroadcastManager' => \Illuminate\Broadcasting\BroadcastManager::class,
@@ -719,8 +726,6 @@ namespace PHPSTORM_META {
         'queue.failer' => \Illuminate\Queue\Failed\DatabaseFailedJobProvider::class,
         'auth.password' => \Illuminate\Auth\Passwords\PasswordBrokerManager::class,
         'auth.password.broker' => \Illuminate\Auth\Passwords\PasswordBroker::class,
-        'translation.loader' => \Illuminate\Translation\FileLoader::class,
-        'translator' => \Illuminate\Translation\Translator::class,
         'validation.presence' => \Illuminate\Validation\DatabasePresenceVerifier::class,
     ]));
     override(\app(0), map([
@@ -782,7 +787,10 @@ namespace PHPSTORM_META {
         'command.ide-helper.models' => \Barryvdh\LaravelIdeHelper\Console\ModelsCommand::class,
         'command.ide-helper.meta' => \Barryvdh\LaravelIdeHelper\Console\MetaCommand::class,
         'command.ide-helper.eloquent' => \Barryvdh\LaravelIdeHelper\Console\EloquentCommand::class,
+        'App\Repositories\UnitRepository' => \App\Repositories\UnitRepositoryEloquent::class,
         'blade.compiler' => \Illuminate\View\Compilers\BladeCompiler::class,
+        'translation.loader' => \Illuminate\Translation\FileLoader::class,
+        'translator' => \Illuminate\Translation\Translator::class,
         'html' => \Collective\Html\HtmlBuilder::class,
         'form' => \Collective\Html\FormBuilder::class,
         'Illuminate\Broadcasting\BroadcastManager' => \Illuminate\Broadcasting\BroadcastManager::class,
@@ -862,8 +870,6 @@ namespace PHPSTORM_META {
         'queue.failer' => \Illuminate\Queue\Failed\DatabaseFailedJobProvider::class,
         'auth.password' => \Illuminate\Auth\Passwords\PasswordBrokerManager::class,
         'auth.password.broker' => \Illuminate\Auth\Passwords\PasswordBroker::class,
-        'translation.loader' => \Illuminate\Translation\FileLoader::class,
-        'translator' => \Illuminate\Translation\Translator::class,
         'validation.presence' => \Illuminate\Validation\DatabasePresenceVerifier::class,
     ]));
     override(\resolve(0), map([
@@ -925,7 +931,10 @@ namespace PHPSTORM_META {
         'command.ide-helper.models' => \Barryvdh\LaravelIdeHelper\Console\ModelsCommand::class,
         'command.ide-helper.meta' => \Barryvdh\LaravelIdeHelper\Console\MetaCommand::class,
         'command.ide-helper.eloquent' => \Barryvdh\LaravelIdeHelper\Console\EloquentCommand::class,
+        'App\Repositories\UnitRepository' => \App\Repositories\UnitRepositoryEloquent::class,
         'blade.compiler' => \Illuminate\View\Compilers\BladeCompiler::class,
+        'translation.loader' => \Illuminate\Translation\FileLoader::class,
+        'translator' => \Illuminate\Translation\Translator::class,
         'html' => \Collective\Html\HtmlBuilder::class,
         'form' => \Collective\Html\FormBuilder::class,
         'Illuminate\Broadcasting\BroadcastManager' => \Illuminate\Broadcasting\BroadcastManager::class,
@@ -1005,8 +1014,6 @@ namespace PHPSTORM_META {
         'queue.failer' => \Illuminate\Queue\Failed\DatabaseFailedJobProvider::class,
         'auth.password' => \Illuminate\Auth\Passwords\PasswordBrokerManager::class,
         'auth.password.broker' => \Illuminate\Auth\Passwords\PasswordBroker::class,
-        'translation.loader' => \Illuminate\Translation\FileLoader::class,
-        'translator' => \Illuminate\Translation\Translator::class,
         'validation.presence' => \Illuminate\Validation\DatabasePresenceVerifier::class,
     ]));
 
