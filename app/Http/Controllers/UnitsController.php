@@ -39,7 +39,9 @@ class UnitsController extends Controller
     public function store(UnitRequest $request)
     {
         Unit::create($request->all());
-        return redirect()->route('units.index');
+        $url = $request->get('redirect_To', route('units.index'));
+        $request->session()->flash('message', 'Unidade cadastrada com sucesso.');
+        return redirect()->to($url);
     }
 
     /**
@@ -75,8 +77,9 @@ class UnitsController extends Controller
     {
         $unit->fill($request->all());
         $unit->save();
-
-        return redirect()->route('units.index');
+        $url = $request->get('redirec_tTo', route('units.index'));
+        $request->session()->flash('message', 'Unidade atualizada com sucesso.');
+        return redirect()->to($url);
     }
 
     /**
@@ -88,6 +91,8 @@ class UnitsController extends Controller
     public function destroy(Unit $unit)
     {
         $unit->delete();
-        return redirect()->route('units.index');
+        $url = redirect()->route('units.index');
+        \Session::flash('message', 'Unidade removida com sucesso.');
+        return redirect()->to(\URL::previous());
     }
 }
