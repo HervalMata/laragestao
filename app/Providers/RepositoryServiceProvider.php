@@ -1,8 +1,10 @@
 <?php
 
-namespace App\Providers;
+namespace GestaoTrocas\Providers;
 
 use Illuminate\Support\ServiceProvider;
+use GestaoTrocas\Repositories\UnitRepository;
+use GestaoTrocas\Repositories\UnitRepositoryEloquent;
 
 class RepositoryServiceProvider extends ServiceProvider
 {
@@ -23,7 +25,7 @@ class RepositoryServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        $this->app->bind(\App\Repositories\UnitRepository::class, \App\Repositories\UnitRepositoryEloquent::class);
+        $this->app->bind(UnitRepository::class, UnitRepositoryEloquent::class);
         //:end-bindings:
     }
 }

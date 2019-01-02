@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace GestaoTrocas\Http\Controllers;
 
-use App\Http\Requests\UnitRequest;
-use App\Models\Unit;
-use App\Repositories\UnitRepository;
+use GestaoTrocas\Http\Requests\UnitRequest;
+use GestaoTrocas\Models\Unit;
+use GestaoTrocas\Repositories\UnitRepository;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Http\Request;
 

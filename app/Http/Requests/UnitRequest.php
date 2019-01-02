@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Requests;
+namespace GestaoTrocas\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 

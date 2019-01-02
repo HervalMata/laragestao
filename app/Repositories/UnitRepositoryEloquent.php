@@ -1,17 +1,17 @@
 <?php
 
-namespace App\Repositories;
+namespace GestaoTrocas\Repositories;
 
 use Prettus\Repository\Eloquent\BaseRepository;
 use Prettus\Repository\Criteria\RequestCriteria;
-use App\Repositories\UnitRepository;
-use App\Models\Unit;
-use App\Validators\UnitValidator;
+use GestaoTrocas\Repositories\UnitRepository;
+use GestaoTrocas\Models\Unit;
+use GestaoTrocas\Validators\UnitValidator;
 
 /**
  * Class UnitRepositoryEloquent.
  *
- * @package namespace App\Repositories;
+ * @package namespace GestaoTrocas\Repositories;
  */
 class UnitRepositoryEloquent extends BaseRepository implements UnitRepository
 {

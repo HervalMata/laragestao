@@ -11,6 +11,6 @@ class UnitsTableSeeder extends Seeder
      */
     public function run()
     {
-        factory(\App\Models\Unit::class, 50)->create();
+        factory(\GestaoTrocas\Models\Unit::class, 50)->create();
     }
 }

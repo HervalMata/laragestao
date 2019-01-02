@@ -6,7 +6,7 @@
  * Time: 02:18
  */
 
-namespace App\Models;
+namespace GestaoTrocas\Models;
 
 
 class State

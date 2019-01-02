@@ -7,7 +7,6 @@
             {!! Button::success('Nova Unidade')->asLinkTo(route('units.create')) !!}
         </div>
         <div class="row">
-<!--            --><?php //dd($units); ?>
             {!!
             Table::withContents(
                 $units->items()

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Providers;
+namespace GestaoTrocas\Providers;
 
 use Illuminate\Support\ServiceProvider;
 

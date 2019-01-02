@@ -24,7 +24,7 @@
 <body>
     <div id="app">
         <?php
-        $navbar = Navbar::withBrand(config('app.name'), url('/'))->inverse();
+        $navbar = Navbar::withBrand(config('app.name'), url('/'));
         if (Auth::check()) {
             $links = Navigation::links([
                 [
@@ -54,7 +54,7 @@
         {!! Form::close() !!}
         @if(Session::has('message'))
             <div class="container">
-               {!! Alert::success(Session::get('message')) !!}
+               {!! Alert::success(Session::get('message'))->close() !!}
             </div>
         @endif
 

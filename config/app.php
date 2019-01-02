@@ -175,12 +175,12 @@ return [
         /*
          * Application Service Providers...
          */
-        App\Providers\AppServiceProvider::class,
-        App\Providers\AuthServiceProvider::class,
-        // App\Providers\BroadcastServiceProvider::class,
-        App\Providers\EventServiceProvider::class,
-        App\Providers\RouteServiceProvider::class,
-        App\Providers\RepositoryServiceProvider::class,
+        GestaoTrocas\Providers\AppServiceProvider::class,
+        GestaoTrocas\Providers\AuthServiceProvider::class,
+        // GestaoTrocas\Providers\BroadcastServiceProvider::class,
+        GestaoTrocas\Providers\EventServiceProvider::class,
+        GestaoTrocas\Providers\RouteServiceProvider::class,
+        GestaoTrocas\Providers\RepositoryServiceProvider::class,
 
     ],
 

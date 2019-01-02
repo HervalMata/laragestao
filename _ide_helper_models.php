@@ -8,9 +8,9 @@
  */
 
 
-namespace App\Models{
+namespace GestaoTrocas\Models{
 /**
- * App\Models\Unit
+ * GestaoTrocas\Models\Unit
  *
  * @property int $id
  * @property string $name
@@ -19,20 +19,20 @@ namespace App\Models{
  * @property string $city
  * @property \Carbon\Carbon|null $created_at
  * @property \Carbon\Carbon|null $updated_at
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Unit whereCity($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Unit whereCreatedAt($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Unit whereId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Unit whereName($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Unit whereSector($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Unit whereState($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Unit whereUpdatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\GestaoTrocas\Models\Unit whereCity($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\GestaoTrocas\Models\Unit whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\GestaoTrocas\Models\Unit whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\GestaoTrocas\Models\Unit whereName($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\GestaoTrocas\Models\Unit whereSector($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\GestaoTrocas\Models\Unit whereState($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\GestaoTrocas\Models\Unit whereUpdatedAt($value)
  */
 	class Unit extends \Eloquent {}
 }
 
-namespace App\Models{
+namespace GestaoTrocas\Models{
 /**
- * App\Models\User
+ * GestaoTrocas\Models\User
  *
  * @property int $id
  * @property string $enrolment
@@ -44,16 +44,16 @@ namespace App\Models{
  * @property \Carbon\Carbon|null $created_at
  * @property \Carbon\Carbon|null $updated_at
  * @property-read \Illuminate\Notifications\DatabaseNotificationCollection|\Illuminate\Notifications\DatabaseNotification[] $notifications
- * @property-read \App\Models\Unit $unit
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\User whereCreatedAt($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\User whereEmail($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\User whereEnrolment($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\User whereId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\User whereName($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\User wherePassword($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\User whereRememberToken($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\User whereUnitId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\User whereUpdatedAt($value)
+ * @property-read \GestaoTrocas\Models\Unit $unit
+ * @method static \Illuminate\Database\Eloquent\Builder|\GestaoTrocas\Models\User whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\GestaoTrocas\Models\User whereEmail($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\GestaoTrocas\Models\User whereEnrolment($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\GestaoTrocas\Models\User whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\GestaoTrocas\Models\User whereName($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\GestaoTrocas\Models\User wherePassword($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\GestaoTrocas\Models\User whereRememberToken($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\GestaoTrocas\Models\User whereUnitId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\GestaoTrocas\Models\User whereUpdatedAt($value)
  */
 	class User extends \Eloquent {}
 }

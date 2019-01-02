@@ -12,20 +12,20 @@
 */
 
 /** @var \Illuminate\Database\Eloquent\Factory $factory */
-$factory->define(App\Models\Unit::class, function (Faker\Generator $faker) {
+$factory->define(GestaoTrocas\Models\Unit::class, function (Faker\Generator $faker) {
 
     return [
         'name' => $faker->unique()->word,
         'sector' => $faker->word,
-        'state' => collect(\App\Models\State::$states)->random(),
+        'state' => collect(\GestaoTrocas\Models\State::$states)->random(),
         'city' => $faker->city,
     ];
 });
 
 /** @var \Illuminate\Database\Eloquent\Factory $factory */
-$factory->define(App\Models\User::class, function (Faker\Generator $faker) {
+$factory->define(GestaoTrocas\Models\User::class, function (Faker\Generator $faker) {
     static $password;
-    $unit = factory(\App\Models\Unit::class)->create();
+    $unit = factory(\GestaoTrocas\Models\Unit::class)->create();
 
     return [
         'enrolment' => str_random(4),
