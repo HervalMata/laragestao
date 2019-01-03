@@ -2,6 +2,7 @@
 
 namespace GestaoTrocas\Repositories;
 
+use GestaoTrocas\Criteria\CriteriaTrashedInterface;
 use Prettus\Repository\Contracts\RepositoryCriteriaInterface;
 use Prettus\Repository\Contracts\RepositoryInterface;
 
@@ -10,7 +11,7 @@ use Prettus\Repository\Contracts\RepositoryInterface;
  *
  * @package namespace GestaoTrocas\Repositories;
  */
-interface UnitRepository extends RepositoryInterface, RepositoryCriteriaInterface
+interface UnitRepository extends RepositoryInterface, RepositoryCriteriaInterface, CriteriaTrashedInterface, RepositoryRestoreInterface
 {
-    //
+    public function listsWithMutators($column, $key = null);
 }

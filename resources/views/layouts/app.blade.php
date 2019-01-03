@@ -28,8 +28,17 @@
         if (Auth::check()) {
             $links = Navigation::links([
                 [
-                    'link' => route('units.index'),
-                    'title' => 'Unidades'
+                    'Unidades',
+                    [
+                        [
+                            'link' => route('units.index'),
+                            'title' => 'Unidades'
+                        ],
+                        [
+                            'link' => route('trashed.units.index'),
+                            'title' => 'Lixeira'
+                        ]
+                    ]
                 ],
                 [
                     'link' => route('users.index'),

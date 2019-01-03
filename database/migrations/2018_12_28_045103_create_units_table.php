@@ -19,6 +19,7 @@ class CreateUnitsTable extends Migration
             $table->string('sector');
             $table->string('state');
             $table->string('city');
+            $table->softDeletes();
             $table->timestamps();
         });
     }

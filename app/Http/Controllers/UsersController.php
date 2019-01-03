@@ -81,7 +81,8 @@ class UsersController extends Controller
     public function edit($id)
     {
         $user = $this->repository->find($id);
-        $units = $this->unitRepository->lists('name', 'id');
+        $this->unitRepository->withTrashed();
+        $units = $this->unitRepository->lists('name_trashed', 'id');
         return view('users.edit', compact('user', 'units'));
     }
 

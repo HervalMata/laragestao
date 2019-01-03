@@ -4,9 +4,14 @@ namespace GestaoTrocas\Models;
 
 use Bootstrapper\Interfaces\TableInterface;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Unit extends Model implements TableInterface
 {
+    use SoftDeletes;
+
+    protected $dates = ['deleted_at'];
+
     protected $fillable = [
         'name',
         'sector',
@@ -17,6 +22,11 @@ class Unit extends Model implements TableInterface
     public function user()
     {
         return $this->hasMany(User::class);
+    }
+
+    public function getNameTrashedAttribute()
+    {
+        return $this->trashed() ? "{$this->name} (Inativa)" : $this->name;
     }
 
     /**

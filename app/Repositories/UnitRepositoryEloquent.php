@@ -2,6 +2,8 @@
 
 namespace GestaoTrocas\Repositories;
 
+use GestaoTrocas\Criteria\CriteriaTrashedTrait;
+use Illuminate\Support\Collection;
 use Prettus\Repository\Eloquent\BaseRepository;
 use Prettus\Repository\Criteria\RequestCriteria;
 use GestaoTrocas\Repositories\UnitRepository;
@@ -16,6 +18,9 @@ use GestaoTrocas\Validators\UnitValidator;
 class UnitRepositoryEloquent extends BaseRepository implements UnitRepository
 {
     use BaseRepositoryTrait;
+    use CriteriaTrashedTrait;
+    use RepositoryRestoreTrait;
+
     protected $fieldSearchable = [
         'name' => 'like',
         'sector' => 'like',
@@ -44,5 +49,11 @@ class UnitRepositoryEloquent extends BaseRepository implements UnitRepository
     {
         $this->pushCriteria(app(RequestCriteria::class));
     }
-    
+
+    public function listsWithMutators($column, $key = null)
+    {
+        /** @var Collection $collection */
+        $collection = $this->all();
+        return $collection->pluck($column, $key);
+    }
 }

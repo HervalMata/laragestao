@@ -22,4 +22,8 @@ Route::get('/home', 'HomeController@index');
 Route::group(['middleware' => 'auth'], function () {
     Route::resource('units', 'UnitsController');
     Route::resource('users', 'UsersController');
+    Route::group(['prefix' => 'trashed', 'as' => 'trashed.'], function () {
+        Route::resource('units', 'UnitsTrashedController',
+            ['except' => ['create', 'edit', 'store', 'destroy']]);
+    });
 });
