@@ -30,6 +30,10 @@
                 [
                     'link' => route('units.index'),
                     'title' => 'Unidades'
+                ],
+                [
+                    'link' => route('users.index'),
+                    'title' => 'Usuários'
                 ]
             ]);
             $logout = Navigation::links([
