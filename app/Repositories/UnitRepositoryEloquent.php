@@ -15,6 +15,15 @@ use GestaoTrocas\Validators\UnitValidator;
  */
 class UnitRepositoryEloquent extends BaseRepository implements UnitRepository
 {
+    protected $fieldSearchable = [
+        'name' => 'like',
+        'sector' => 'like',
+        'state' => 'like',
+        'city' => 'like',
+    ];
+
+
+
     /**
      * Specify Model class name
      *

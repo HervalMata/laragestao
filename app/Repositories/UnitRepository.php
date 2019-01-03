@@ -2,6 +2,7 @@
 
 namespace GestaoTrocas\Repositories;
 
+use Prettus\Repository\Contracts\RepositoryCriteriaInterface;
 use Prettus\Repository\Contracts\RepositoryInterface;
 
 /**
@@ -9,7 +10,7 @@ use Prettus\Repository\Contracts\RepositoryInterface;
  *
  * @package namespace GestaoTrocas\Repositories;
  */
-interface UnitRepository extends RepositoryInterface
+interface UnitRepository extends RepositoryInterface, RepositoryCriteriaInterface
 {
     //
 }

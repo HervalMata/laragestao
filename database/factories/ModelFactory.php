@@ -25,14 +25,16 @@ $factory->define(GestaoTrocas\Models\Unit::class, function (Faker\Generator $fak
 /** @var \Illuminate\Database\Eloquent\Factory $factory */
 $factory->define(GestaoTrocas\Models\User::class, function (Faker\Generator $faker) {
     static $password;
-    $unit = factory(\GestaoTrocas\Models\Unit::class)->create();
+    $repository = app(\GestaoTrocas\Repositories\UnitRepository::class);
+    /** @var \Illuminate\Database\Eloquent\Collection $units */
+    $unitId = $repository->all()->random()->id;
 
     return [
         'enrolment' => str_random(4),
         'name' => $faker->name,
         'email' => $faker->safeEmail,
         'password' => $password ?: $password = bcrypt('secret'),
-        'unit_id' => $unit->id,
+        'unit_id' => $unitId,
         'remember_token' => str_random(10),
     ];
 });

@@ -14,6 +14,11 @@ class Unit extends Model implements TableInterface
         'city',
     ];
 
+    public function user()
+    {
+        return $this->hasMany(User::class);
+    }
+
     /**
      * A list of headers to be used when a table is displayed
      *

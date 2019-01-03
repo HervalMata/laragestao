@@ -2,6 +2,11 @@
 
 namespace GestaoTrocas\Http\Controllers;
 
+use GestaoTrocas\Criteria\FindByCityCriteria;
+use GestaoTrocas\Criteria\FindByNameAndSectorAndStateAndCity;
+use GestaoTrocas\Criteria\FindByNameCriteria;
+use GestaoTrocas\Criteria\FindBySectorCriteria;
+use GestaoTrocas\Criteria\FindByStateCriteria;
 use GestaoTrocas\Http\Requests\UnitRequest;
 use GestaoTrocas\Models\Unit;
 use GestaoTrocas\Repositories\UnitRepository;
@@ -25,10 +30,11 @@ class UnitsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
+        $search = $request->get('search');
         $units = $this->repository->paginate(10);
-        return view('units.index', compact('units'));
+        return view('units.index', compact('units', 'search'));
     }
 
     /**

@@ -29,6 +29,6 @@ class User extends Authenticatable
 
     public function unit()
     {
-        return $this->hasOne('GestaoTrocas\Models\Unit');
+        return $this->belongsTo(Unit::class);
     }
 }

@@ -6,6 +6,15 @@
             <h3>Listagem de Unidades</h3>
             {!! Button::success('Nova Unidade')->asLinkTo(route('units.create')) !!}
         </div>
+        <br/>
+        <div class="row">
+            {!! Form::model(compact('search'), ['class' => 'form-inline', 'method' => 'GET']) !!}
+                {!! Form::label('search', 'Pesquisar', ['class' => 'control-label']) !!}
+                {!! Form::text('search', null, ['class' => 'form-control']) !!}
+                {!! Button::success('Buscar')->submit() !!}
+            {!! Form::close() !!}
+        </div>
+        <br/>
         <div class="row">
             {!!
             Table::withContents(
