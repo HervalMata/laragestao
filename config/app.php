@@ -165,12 +165,15 @@ return [
         Collective\Html\HtmlServiceProvider::class,
         Bootstrapper\BootstrapperL5ServiceProvider::class,
         Prettus\Repository\Providers\RepositoryServiceProvider::class,
+        Nwidart\Modules\LaravelModulesServiceProvider::class,
 
         /*
          * Package Service Providers...
          */
         Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class,
         //
+
+        \GestaoTrocasUnidades\Providers\GestaoTrocasUnidadesServiceProvider::class,
 
         /*
          * Application Service Providers...
@@ -236,6 +239,7 @@ return [
         'Navigation' => Bootstrapper\Facades\Navigation::class,
         'Table' => Bootstrapper\Facades\Table::class,
         'Alert' => Bootstrapper\Facades\Alert::class,
+        'Module' => Nwidart\Modules\Facades\Module::class,
     ],
 
 ];
