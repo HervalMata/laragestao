@@ -23,6 +23,7 @@ class GestaoTrocasUnidadesServiceProvider extends ServiceProvider
         $this->registerTranslations();
         $this->registerConfig();
         $this->registerViews();
+        $this->publishMigrationsAndSeeders();
     }
 
     /**
@@ -32,7 +33,7 @@ class GestaoTrocasUnidadesServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        //
+        $this->app->register(RouteServiceProvider::class);
     }
 
     /**
@@ -84,6 +85,21 @@ class GestaoTrocasUnidadesServiceProvider extends ServiceProvider
         } else {
             $this->loadTranslationsFrom(__DIR__ .'/../resources/lang', 'gestaotrocasunidades');
         }
+    }
+
+    public function publishMigrationsAndSeeders()
+    {
+        $sourcePath = __DIR__.'/../database/migrations';
+
+        $this->publishes([
+            $sourcePath => database_path('migrations')
+        ], 'migrations');
+
+        $sourcePath = __DIR__.'/../database/seeders';
+
+        $this->publishes([
+            $sourcePath => database_path('seeds')
+        ], 'seeders');
     }
 
     /**

@@ -3,8 +3,8 @@
 namespace GestaoTrocas\Http\Controllers;
 
 use GestaoTrocas\Http\Requests\UserRequest;
-use GestaoTrocas\Models\Unit;
-use GestaoTrocas\Repositories\UnitRepository;
+use GestaoTrocasUnidades\Models\Unit;
+use GestaoTrocasUnidades\Repositories\UnitRepository;
 use GestaoTrocas\Repositories\UserRepository;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Http\Request;

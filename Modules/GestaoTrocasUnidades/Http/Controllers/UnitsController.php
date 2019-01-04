@@ -1,16 +1,11 @@
 <?php
 
-namespace GestaoTrocas\Http\Controllers;
+namespace GestaoTrocasUnidades\Http\Controllers;
 
-use GestaoTrocas\Criteria\FindByCityCriteria;
-use GestaoTrocas\Criteria\FindByNameAndSectorAndStateAndCity;
-use GestaoTrocas\Criteria\FindByNameCriteria;
-use GestaoTrocas\Criteria\FindBySectorCriteria;
-use GestaoTrocas\Criteria\FindByStateCriteria;
-use GestaoTrocas\Http\Requests\UnitRequest;
-use GestaoTrocas\Models\Unit;
-use GestaoTrocas\Repositories\UnitRepository;
-use Illuminate\Database\Eloquent\ModelNotFoundException;
+use GestaoTrocas\Http\Controllers\Controller;
+use GestaoTrocasUnidades\Http\Requests\UnitRequest;
+use GestaoTrocasUnidades\Models\Unit;
+use GestaoTrocasUnidades\Repositories\UnitRepository;
 use Illuminate\Http\Request;
 
 class UnitsController extends Controller
@@ -34,7 +29,7 @@ class UnitsController extends Controller
     {
         $search = $request->get('search');
         $units = $this->repository->paginate(10);
-        return view('units.index', compact('units', 'search'));
+        return view('modules.gestaotrocasunidades.units.index', compact('units', 'search'));
     }
 
     /**
@@ -44,7 +39,7 @@ class UnitsController extends Controller
      */
     public function create()
     {
-        return view('units.create');
+        return view('modules.gestaotrocasunidades.units.create');
     }
 
     /**
@@ -81,7 +76,7 @@ class UnitsController extends Controller
     public function edit($id)
     {
         $unit = $this->repository->find($id);
-        return view('units.edit', compact('unit'));
+        return view('modules.gestaotrocasunidades.units.edit', compact('unit'));
     }
 
     /**

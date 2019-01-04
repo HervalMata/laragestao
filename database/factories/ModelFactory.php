@@ -12,7 +12,7 @@
 */
 
 /** @var \Illuminate\Database\Eloquent\Factory $factory */
-$factory->define(GestaoTrocas\Models\Unit::class, function (Faker\Generator $faker) {
+$factory->define(\GestaoTrocasUnidades\Models\Unit::class, function (Faker\Generator $faker) {
 
     return [
         'name' => $faker->unique()->word,
@@ -25,7 +25,7 @@ $factory->define(GestaoTrocas\Models\Unit::class, function (Faker\Generator $fak
 /** @var \Illuminate\Database\Eloquent\Factory $factory */
 $factory->define(GestaoTrocas\Models\User::class, function (Faker\Generator $faker) {
     static $password;
-    $repository = app(\GestaoTrocas\Repositories\UnitRepository::class);
+    $repository = app(\GestaoTrocasUnidades\Repositories\UnitRepository::class);
     /** @var \Illuminate\Database\Eloquent\Collection $units */
     $unitId = $repository->all()->random()->id;
 

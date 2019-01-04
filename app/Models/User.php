@@ -7,7 +7,7 @@ use Collective\Html\Eloquent\FormAccessible;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
-use GestaoTrocas\Models\Unit;
+use GestaoTrocasUnidades\Models\Unit;
 
 class User extends Authenticatable implements TableInterface
 {

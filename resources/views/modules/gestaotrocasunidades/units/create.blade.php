@@ -3,14 +3,12 @@
 @section('content')
     <div class="container">
         <div class="row">
-            <h3>Editar Unidade</h3>
-
+            <h3>Nova Unidade</h3>
             {{--@include('errors.errors.form')--}}
-            {!! Form::model($unit, ['route' => ['units.update', 'units' => $unit->id],
-                'class' => 'form', 'method' => 'PUT']) !!}
-                @include('units._form')
+            {!! Form::open(['route' => 'units.store', 'class' => 'form']) !!}
+                @include('modules.gestaotrocasunidades.units._form')
                 {!! Html::openFormGroup() !!}
-                    {!! Button::success('Editar unidade')->submit() !!}
+                    {!! Button::success('Criar unidade')->submit() !!}
                 {!! Html::closeFormGroup() !!}
             {!! Form::close() !!}
         </div>

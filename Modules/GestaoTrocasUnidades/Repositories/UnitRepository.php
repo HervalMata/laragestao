@@ -1,8 +1,9 @@
 <?php
 
-namespace GestaoTrocas\Repositories;
+namespace GestaoTrocasUnidades\Repositories;
 
 use GestaoTrocas\Criteria\CriteriaTrashedInterface;
+use GestaoTrocas\Repositories\RepositoryRestoreInterface;
 use Prettus\Repository\Contracts\RepositoryCriteriaInterface;
 use Prettus\Repository\Contracts\RepositoryInterface;
 

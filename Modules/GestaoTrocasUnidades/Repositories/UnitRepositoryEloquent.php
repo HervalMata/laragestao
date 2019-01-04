@@ -1,13 +1,15 @@
 <?php
 
-namespace GestaoTrocas\Repositories;
+namespace GestaoTrocasUnidades\Repositories;
 
 use GestaoTrocas\Criteria\CriteriaTrashedTrait;
+use GestaoTrocas\Repositories\BaseRepositoryTrait;
+use GestaoTrocas\Repositories\RepositoryRestoreTrait;
 use Illuminate\Support\Collection;
 use Prettus\Repository\Eloquent\BaseRepository;
 use Prettus\Repository\Criteria\RequestCriteria;
-use GestaoTrocas\Repositories\UnitRepository;
-use GestaoTrocas\Models\Unit;
+use GestaoTrocasUnidades\Repositories\UnitRepository;
+use GestaoTrocasUnidades\Models\Unit;
 use GestaoTrocas\Validators\UnitValidator;
 
 /**

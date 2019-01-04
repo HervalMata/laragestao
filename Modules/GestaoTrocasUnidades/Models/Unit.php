@@ -1,8 +1,9 @@
 <?php
 
-namespace GestaoTrocas\Models;
+namespace GestaoTrocasUnidades\Models;
 
 use Bootstrapper\Interfaces\TableInterface;
+use GestaoTrocas\Models\User;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 

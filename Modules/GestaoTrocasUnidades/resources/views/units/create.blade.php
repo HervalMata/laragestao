@@ -6,7 +6,7 @@
             <h3>Nova Unidade</h3>
             {{--@include('errors.errors.form')--}}
             {!! Form::open(['route' => 'units.store', 'class' => 'form']) !!}
-                @include('units._form')
+                @include('modules.gestaotrocasunidades.units._form')
                 {!! Html::openFormGroup() !!}
                     {!! Button::success('Criar unidade')->submit() !!}
                 {!! Html::closeFormGroup() !!}
