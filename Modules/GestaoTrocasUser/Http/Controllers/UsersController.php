@@ -3,6 +3,7 @@
 namespace GestaoTrocasUser\Http\Controllers;
 
 use GestaoTrocasUser\Http\Controllers\Controller;
+use GestaoTrocasUser\Http\Requests\UserDeleteRequest;
 use GestaoTrocasUser\Http\Requests\UserRequest;
 use GestaoTrocasUnidades\Models\Unit;
 use GestaoTrocasUnidades\Repositories\UnitRepository;
@@ -105,10 +106,11 @@ class UsersController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param UserDeleteRequest $request
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(UserDeleteRequest $request, $id)
     {
         $this->repository->delete($id);
         \Session::flash('message', 'Usuário removido com sucesso!');

@@ -21,6 +21,8 @@ class CreateUsersTable extends Migration
             $table->string('password');
             $table->integer('unit_id')->unsigned();
             $table->foreign('unit_id')->references('id')->on('units');
+            $table->boolean('verified')->default(false);
+            $table->string('verification_token')->nullable();
             $table->rememberToken();
             $table->softDeletes();
             $table->timestamps();

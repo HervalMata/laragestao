@@ -4,6 +4,7 @@ namespace GestaoTrocasUser\Models;
 
 use Bootstrapper\Interfaces\TableInterface;
 use Collective\Html\Eloquent\FormAccessible;
+use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -53,6 +54,27 @@ class User extends Authenticatable implements TableInterface
     public function formUnitsAttribute()
     {
         return $this->unit->pluck('id')->all();
+    }
+
+    public function roles()
+    {
+        return $this->belongsToMany(Role::class);
+    }
+
+    /**
+     * @param Collection/string $role
+     * @return boolean
+     */
+    public function hasRole($role)
+    {
+        return is_string($role) ?
+            $this->roles->contains('name', $role) :
+            (boolean) $role->intersect($this->roles)->count();
+    }
+
+    public function isAdmin()
+    {
+        return $this->hasRole(config('gestaotrocasuser.acl.role_admin'));
     }
 
     /**

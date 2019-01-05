@@ -19,7 +19,6 @@ $factory->define(\GestaoTrocasUnidades\Models\Unit::class, function (Faker\Gener
         'sector' => $faker->word,
         'state' => collect(\GestaoTrocas\Models\State::$states)->random(),
         'city' => $faker->city,
-        'verified' => true
     ];
 });
 
@@ -37,5 +36,6 @@ $factory->define(\GestaoTrocasUser\Models\User::class, function (Faker\Generator
         'password' => $password ?: $password = bcrypt('secret'),
         'unit_id' => $unitId,
         'remember_token' => str_random(10),
+        'verified' => true
     ];
 });

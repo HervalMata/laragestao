@@ -1,7 +1,9 @@
 <?php
 
-Route::group(['as' => 'gestaotrocasuser.'], function () {
-    Route::group(['prefix' => 'admin'], function () {
+Route::group(
+    ['middleware' => ['auth', config('gestaotrocasuser.middleware.isVerified')],
+    'as' => 'gestaotrocasuser.'], function () {
+    Route::group(['prefix' => 'admin', 'middleware' => 'can:user_admin'], function () {
         Route::resource('users', 'UsersController');
     });
 

@@ -11,11 +11,6 @@ class UsersTableSeeder extends Seeder
      */
     public function run()
     {
-        factory(\GestaoTrocasUser\Models\User::class)->create([
-            'enrolment' => 'oooo',
-            'password' => bcrypt('admin')
-        ]);
-
         factory(\GestaoTrocasUser\Models\User::class, 100)->create();
     }
 }
