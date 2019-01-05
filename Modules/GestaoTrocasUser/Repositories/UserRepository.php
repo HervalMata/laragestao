@@ -1,6 +1,6 @@
 <?php
 
-namespace GestaoTrocas\Repositories;
+namespace GestaoTrocasUser\Repositories;
 
 use Prettus\Repository\Contracts\RepositoryCriteriaInterface;
 use Prettus\Repository\Contracts\RepositoryInterface;

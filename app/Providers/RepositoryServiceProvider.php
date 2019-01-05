@@ -5,8 +5,8 @@ namespace GestaoTrocas\Providers;
 use Illuminate\Support\ServiceProvider;
 use GestaoTrocasUnidades\Repositories\UnitRepository;
 use GestaoTrocasUnidades\Repositories\UnitRepositoryEloquent;
-use GestaoTrocas\Repositories\UserRepository;
-use GestaoTrocas\Repositories\UserRepositoryEloquent;
+use GestaoTrocasUser\Repositories\UserRepository;
+use GestaoTrocasUser\Repositories\UserRepositoryEloquent;
 
 class RepositoryServiceProvider extends ServiceProvider
 {

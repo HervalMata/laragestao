@@ -34,7 +34,8 @@
         ],
         "psr-4": {
             "GestaoTrocas\\": "app/",
-            "GestaoTrocasUnidades\\": "Modules/GestaoTrocasUnidades/"
+            "GestaoTrocasUnidades\\": "Modules/GestaoTrocasUnidades/",
+            "GestaoTrocasUser\\": "Modules/GestaoTrocasUser/"
         }
     },
     "autoload-dev": {

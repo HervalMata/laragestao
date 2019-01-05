@@ -1,6 +1,6 @@
 <?php
 
-namespace GestaoTrocas\Models;
+namespace GestaoTrocasUser\Models;
 
 use Bootstrapper\Interfaces\TableInterface;
 use Collective\Html\Eloquent\FormAccessible;
@@ -21,7 +21,7 @@ class User extends Authenticatable implements TableInterface
      * @var array
      */
     protected $fillable = [
-        'enolment', 'name', 'email', 'password', 'unit_id'
+        'enrolment', 'name', 'email', 'password', 'unit_id'
     ];
 
     /**
@@ -35,9 +35,19 @@ class User extends Authenticatable implements TableInterface
 
     protected $dates = ['deleted_at'];
 
+    public static function generatePassword($password = null)
+    {
+        return !$password ? bcrypt(str_random(8)) : bcrypt($password);
+    }
+
+    public static function generateEnrolment()
+    {
+        return str_random(4);
+    }
+
     public function unit()
     {
-        return $this->belongsTo(Unit::class);
+        return $this->belongsTo(\GestaoTrocasUnidades\Models\Unit::class);
     }
 
     public function formUnitsAttribute()

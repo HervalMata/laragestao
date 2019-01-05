@@ -41,7 +41,7 @@
                     ]
                 ],
                 [
-                    'link' => route('users.index'),
+                    'link' => route('gestaotrocasuser.users.index'),
                     'title' => 'Usuários'
                 ]
             ]);

@@ -174,6 +174,7 @@ return [
         //
 
         \GestaoTrocasUnidades\Providers\GestaoTrocasUnidadesServiceProvider::class,
+        \GestaoTrocasUser\Providers\GestaoTrocasUserServiceProvider::class,
 
         /*
          * Application Service Providers...
@@ -240,6 +241,7 @@ return [
         'Table' => Bootstrapper\Facades\Table::class,
         'Alert' => Bootstrapper\Facades\Alert::class,
         'Module' => Nwidart\Modules\Facades\Module::class,
+        'UserVerification' => \Jrean\UserVerification\Facades\UserVerification::class,
     ],
 
 ];

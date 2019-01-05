@@ -1,18 +1,18 @@
 <?php
 
-namespace GestaoTrocas\Http\Controllers;
+namespace GestaoTrocasUser\Http\Controllers;
 
-use GestaoTrocas\Http\Requests\UserRequest;
+use GestaoTrocasUser\Http\Controllers\Controller;
+use GestaoTrocasUser\Http\Requests\UserRequest;
 use GestaoTrocasUnidades\Models\Unit;
 use GestaoTrocasUnidades\Repositories\UnitRepository;
-use GestaoTrocas\Repositories\UserRepository;
-use Illuminate\Database\Eloquent\ModelNotFoundException;
+use GestaoTrocasUser\Repositories\UserRepository;
 use Illuminate\Http\Request;
 
 class UsersController extends Controller
 {
     /**
-     * @var UnitRepository
+     * @var UserRepository
      */
     private $repository;
     private $unitRepository;
@@ -33,7 +33,7 @@ class UsersController extends Controller
 
         $search = $request->get('search');
         $users = $this->repository->paginate(10);
-        return view('users.index', compact('users', 'search'));
+        return view('modules.gestaotrocasuser.users.index', compact('users', 'search'));
     }
 
     /**
@@ -44,7 +44,7 @@ class UsersController extends Controller
     public function create()
     {
         $units = $this->unitRepository->lists('name', 'id');
-        return view('users.create', compact('units'));
+        return view('modules.gestaotrocasuser.users.create', compact('units'));
     }
 
     /**
@@ -56,7 +56,7 @@ class UsersController extends Controller
     public function store(UserRequest $request)
     {
         $this->repository->create($request->all());
-        $url = $request->get('redirectTo', route('users.index'));
+        $url = $request->get('redirect_to', route('gestaotrocasuser.users.index'));
         $request->session()->flash('message', 'Usuário cadastrado com sucesso!');
         return redirect()->to($url);
     }
@@ -81,9 +81,10 @@ class UsersController extends Controller
     public function edit($id)
     {
         $user = $this->repository->find($id);
-        $this->unitRepository->withTrashed();
-        $units = $this->unitRepository->lists('name_trashed', 'id');
-        return view('users.edit', compact('user', 'units'));
+        //$this->unitRepository->withTrashed();
+        //$units = $this->unitRepository->lists('name_trashed', 'id');
+        $units = $this->unitRepository->lists('name', 'id');
+        return view('modules.gestaotrocasuser.users.edit', compact('user', 'units'));
     }
 
     /**
@@ -96,7 +97,7 @@ class UsersController extends Controller
     public function update(UserRequest $request, $id)
     {
         $this->repository->update($request->all(), $id);
-        $url = $request->get('redirectTo', route('units.index'));
+        $url = $request->get('redirectTo', route('gestaotrocasuser.users.index'));
         $request->session()->flash('message', 'Usuário atualizado com sucesso!');
         return redirect()->to($url);
     }

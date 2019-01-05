@@ -5,8 +5,8 @@
         <div class="row">
             <h3>Nova Usuário</h3>
             {{--@include('errors.errors.form')--}}
-            {!! Form::open(['route' => 'users.store', 'class' => 'form']) !!}
-                @include('users._form')
+            {!! Form::open(['route' => 'gestaotrocasuser.users.store', 'class' => 'form']) !!}
+                @include('modules.gestaotrocasuser.users._form')
                 {!! Html::openFormGroup() !!}
                     {!! Button::success('Criar usuário')->submit() !!}
                 {!! Html::closeFormGroup() !!}

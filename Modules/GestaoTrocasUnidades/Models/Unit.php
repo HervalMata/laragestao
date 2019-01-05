@@ -3,7 +3,7 @@
 namespace GestaoTrocasUnidades\Models;
 
 use Bootstrapper\Interfaces\TableInterface;
-use GestaoTrocas\Models\User;
+use GestaoTrocasUser\Models\User;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
@@ -22,7 +22,7 @@ class Unit extends Model implements TableInterface
 
     public function user()
     {
-        return $this->hasMany(User::class);
+        return $this->hasMany(\GestaoTrocasUser\Models\User::class);
     }
 
     public function getNameTrashedAttribute()

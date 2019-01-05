@@ -9,9 +9,9 @@
     {!! Form::text('email', null, ['class' => 'form-control']) !!}
     {!! Form::error('email', $errors) !!}
 {!! Html::closeFormGroup() !!}
-{!! Html::openFormGroup(['units', 'units.*'], $errors) !!}
-    {!! Form::label('units[]', 'Unidades') !!}
-    {!! Form::select('units[]', $units, null, ['class' => 'form-control']) !!}
-    {!! Form::error('units', $errors) !!}
-    {!! Form::error('units.*', $errors) !!}
+{!! Html::openFormGroup('unit_id', $errors) !!}
+    {!! Form::label('unit_id', 'Unidades') !!}
+    {!! Form::select('unit_id', $units, null, ['class' => 'form-control']) !!}
+    {!! Form::error('unit_id', $errors) !!}
+    {{--{!! Form::error('units.*', $errors) !!}--}}
 {!! Html::closeFormGroup() !!}

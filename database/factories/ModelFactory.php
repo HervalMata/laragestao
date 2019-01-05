@@ -19,11 +19,12 @@ $factory->define(\GestaoTrocasUnidades\Models\Unit::class, function (Faker\Gener
         'sector' => $faker->word,
         'state' => collect(\GestaoTrocas\Models\State::$states)->random(),
         'city' => $faker->city,
+        'verified' => true
     ];
 });
 
 /** @var \Illuminate\Database\Eloquent\Factory $factory */
-$factory->define(GestaoTrocas\Models\User::class, function (Faker\Generator $faker) {
+$factory->define(\GestaoTrocasUser\Models\User::class, function (Faker\Generator $faker) {
     static $password;
     $repository = app(\GestaoTrocasUnidades\Repositories\UnitRepository::class);
     /** @var \Illuminate\Database\Eloquent\Collection $units */

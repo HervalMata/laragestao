@@ -1,0 +1,15 @@
+{
+    "name": "GestaoTrocasUser",
+    "alias": "gestaotrocasuser",
+    "description": "",
+    "keywords": [],
+    "active": 1,
+    "order": 0,
+    "providers": [
+        "GestaoTrocasUser\\Providers\\GestaoTrocasUserServiceProvider"
+    ],
+    "aliases":{},
+    "files": [
+        "start.php"
+    ]
+}

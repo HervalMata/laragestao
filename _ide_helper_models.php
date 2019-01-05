@@ -45,15 +45,15 @@ namespace GestaoTrocas\Models{
  * @property \Carbon\Carbon|null $updated_at
  * @property-read \Illuminate\Notifications\DatabaseNotificationCollection|\Illuminate\Notifications\DatabaseNotification[] $notifications
  * @property-read \GestaoTrocasUnidades\Models\Unit $unit
- * @method static \Illuminate\Database\Eloquent\Builder|\GestaoTrocas\Models\User whereCreatedAt($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\GestaoTrocas\Models\User whereEmail($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\GestaoTrocas\Models\User whereEnrolment($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\GestaoTrocas\Models\User whereId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\GestaoTrocas\Models\User whereName($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\GestaoTrocas\Models\User wherePassword($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\GestaoTrocas\Models\User whereRememberToken($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\GestaoTrocas\Models\User whereUnitId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\GestaoTrocas\Models\User whereUpdatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\GestaoTrocasUser\Models\User whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\GestaoTrocasUser\Models\User whereEmail($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\GestaoTrocasUser\Models\User whereEnrolment($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\GestaoTrocasUser\Models\User whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\GestaoTrocasUser\Models\User whereName($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\GestaoTrocasUser\Models\User wherePassword($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\GestaoTrocasUser\Models\User whereRememberToken($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\GestaoTrocasUser\Models\User whereUnitId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\GestaoTrocasUser\Models\User whereUpdatedAt($value)
  */
 	class User extends \Eloquent {}
 }

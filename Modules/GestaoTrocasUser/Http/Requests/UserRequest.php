@@ -1,6 +1,6 @@
 <?php
 
-namespace GestaoTrocas\Http\Requests;
+namespace GestaoTrocasUser\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
@@ -25,11 +25,11 @@ class UserRequest extends FormRequest
     {
         $id = $this->route('user');
         return [
-            'enrolment' => "required|min:3|max:20|unique:users,key,$id",
+//            'enrolment' => "required|size:4|unique:users,enrolment,$id",
             'name' => 'required|min:3|max:20',
             'email' => 'required|email',
-            'units' => 'required|array',
-            'units.*' => 'exists:units,id',
+//            'units' => 'required|array',
+            'unit_id' => 'required|exists:units,id',
         ];
     }
 
@@ -43,6 +43,16 @@ class UserRequest extends FormRequest
             'size' => 'O :attribute tem que ter exatamente :size caracteres.',
             'email' => 'O :attribute é inválido.',
         ];
+//        $units = $this->get('units', []);
+//        $count = count($units);
+//        if (is_array($units) && $count > 0) {
+//            foreach (range(0, $count -1) as $value) {
+//                $field = \Lang::get('validation.attributes.units.*', ['num' => $value + 1]);
+//                $message = \Lang::get('validation.exists', ['attribute' => $field]);
+//                $result["units.$value.exists"] = $message;
+//            }
+//        }
+//        return $result;
     }
 
     public function attributes()
@@ -53,5 +63,6 @@ class UserRequest extends FormRequest
             'email' => 'Email',
             'unit_id' => 'Unidade',
         ];
+
     }
 }

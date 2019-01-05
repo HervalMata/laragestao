@@ -3,14 +3,12 @@
 @section('content')
     <div class="container">
         <div class="row">
-            <h3>Editar Usuário</h3>
-
+            <h3>Nova Usuário</h3>
             {{--@include('errors.errors.form')--}}
-            {!! Form::model($user, ['route' => ['users.update', 'users' => $user->id],
-                'class' => 'form', 'method' => 'PUT']) !!}
-                @include('users._form')
+            {!! Form::open(['route' => 'gestaotrocasuser.users.store', 'class' => 'form']) !!}
+                @include('modules.gestaotrocasuser.users._form')
                 {!! Html::openFormGroup() !!}
-                    {!! Button::success('Editar usuário')->submit() !!}
+                    {!! Button::success('Criar usuário')->submit() !!}
                 {!! Html::closeFormGroup() !!}
             {!! Form::close() !!}
         </div>

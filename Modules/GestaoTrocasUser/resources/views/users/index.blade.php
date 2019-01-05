@@ -4,7 +4,7 @@
     <div class="container">
         <div class="row">
             <h3>Listagem de Usuários</h3>
-            {!! Button::success('Novo Usuário')->asLinkTo(route('users.create')) !!}
+            {!! Button::success('Novo Usuário')->asLinkTo(route('gestaotrocasuser.users.create')) !!}
         </div>
         <br/>
         <div class="row">
@@ -21,14 +21,14 @@
                 $users->items()
                 )->striped()->bordered()
                 ->callback('Editar', function($field, $user){
-                    return Button::warning('Editar')->asLinkTo(route('users.edit', ['user' => $user->id]));
+                    return Button::warning('Editar')->asLinkTo(route('gestaotrocasuser.users.edit', ['user' => $user->id]));
                 })
                 ->callback('Excluir', function ($field, $user){
                     $deleteForm = "delete-form-{$user->id}";
-                    $form = Form::open(['route' => ['users.destroy', 'user' => $user->id],
+                    $form = Form::open(['route' => ['gestaotrocasuser.users.destroy', 'user' => $user->id],
                              'method' => 'DELETE', 'style' => 'display:none', 'id' => $deleteForm]).
                              Form::close();
-                    return Button::danger('Excluir')->asLinkTo(route('users.destroy', ['user' => $user->id]))
+                    return Button::danger('Excluir')->asLinkTo(route('gestaotrocasuser.users.destroy', ['user' => $user->id]))
                             ->addAttributes([
                                 'onclick' => "event.preventDefault();document.getElementById(\"{$deleteForm}\").submit();"
                             ]).$form;

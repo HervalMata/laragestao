@@ -67,7 +67,7 @@ return [
     'providers' => [
         'users' => [
             'driver' => 'eloquent',
-            'model' => GestaoTrocas\Models\User::class,
+            'model' => \GestaoTrocasUser\Models\User::class,
         ],
 
         // 'users' => [
