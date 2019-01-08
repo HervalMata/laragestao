@@ -240,8 +240,10 @@ return [
         'Navigation' => Bootstrapper\Facades\Navigation::class,
         'Table' => Bootstrapper\Facades\Table::class,
         'Alert' => Bootstrapper\Facades\Alert::class,
+        'Icon' => Bootstrapper\Facades\Icon::class,
         'Module' => Nwidart\Modules\Facades\Module::class,
         'UserVerification' => \Jrean\UserVerification\Facades\UserVerification::class,
+        'PermissionReader' => \GestaoTrocasUser\Facade\PermissionReader::class,
     ],
 
 ];

@@ -10,7 +10,7 @@ use Prettus\Repository\Contracts\RepositoryInterface;
  *
  * @package namespace GestaoTrocasUser\Repositories;
  */
-interface UserRepository extends RepositoryInterface, RepositoryCriteriaInterface
+interface RoleRepository extends RepositoryInterface, RepositoryCriteriaInterface
 {
-    //
+    public function updatePermission(array $data, $id);
 }

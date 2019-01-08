@@ -26,7 +26,7 @@
         <?php
         $navbar = Navbar::withBrand(config('app.name'), url('/'));
         if (Auth::check()) {
-            $links = Navigation::links([
+            $arrayLinks = [
                 [
                     'Unidades',
                     [
@@ -39,12 +39,24 @@
                             'title' => 'Lixeira'
                         ]
                     ]
-                ],
-                [
-                    'link' => route('gestaotrocasuser.users.index'),
-                    'title' => 'Usuários'
                 ]
-            ]);
+            ];
+            if (Auth::user()->can('user-admin/list')) {
+                $arrayLinks [] = [
+                    'Usuários',
+                    [
+                        [
+                            'link' => route('gestaotrocasuser.users.index'),
+                            'title' => 'Usuários'
+                        ],
+                        [
+                            'link' => route('gestaotrocasuser.roles.index'),
+                            'title' => 'Roles'
+                        ]
+                    ]
+                ];
+            }
+            $links = Navigation::links($arrayLinks);
             $logout = Navigation::links([
                 [
                     Auth::user()->name,
@@ -68,6 +80,11 @@
         @if(Session::has('message'))
             <div class="container">
                {!! Alert::success(Session::get('message'))->close() !!}
+            </div>
+        @endif
+        @if(Session::has('error'))
+            <div class="container">
+                 {!! Alert::danger(Session::get('error'))->close() !!}
             </div>
         @endif
 

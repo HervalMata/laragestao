@@ -28,10 +28,13 @@
                     $form = Form::open(['route' => ['gestaotrocasuser.users.destroy', 'user' => $user->id],
                              'method' => 'DELETE', 'style' => 'display:none', 'id' => $deleteForm]).
                              Form::close();
-                    return Button::danger('Excluir')->asLinkTo(route('gestaotrocasuser.users.destroy', ['user' => $user->id]))
+                    $anchorDestroy =  Button::danger('Excluir')->asLinkTo(route('gestaotrocasuser.users.destroy', ['user' => $user->id]))
                             ->addAttributes([
                                 'onclick' => "event.preventDefault();document.getElementById(\"{$deleteForm}\").submit();"
-                            ]).$form;
+                            ]);
+
+                    $anchorDestroy = $user->id == \Auth::user()->id ? '<a href="#" class="btn btn-danger disabled" title="Não é possível excluir o próprio usuário!">Remover</a>' : $anchrDestroy;
+                    return $anchorDestroy.$form;
                 }) !!}
             {{ $users->links() }}
         </div>

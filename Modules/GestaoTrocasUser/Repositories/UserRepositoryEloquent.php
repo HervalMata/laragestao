@@ -13,7 +13,7 @@ use GestaoTrocas\Validators\UserValidator;
 /**
  * Class UserRepositoryEloquent.
  *
- * @package namespace GestaoTrocas\Repositories;
+ * @package namespace GestaoTrocasUser\Repositories;
  */
 class UserRepositoryEloquent extends BaseRepository implements UserRepository
 {
@@ -24,6 +24,9 @@ class UserRepositoryEloquent extends BaseRepository implements UserRepository
         $attributes['password'] = User::generatePassword();
         $attributes['enrolment'] = User::generateEnrolment();
         $model = parent::create($attributes);
+        if (isset($attributes['roles'])) {
+            $model->roles()->sync($attributes['roles']);
+        }
         UserVerification::generate($model);
         $subject = config('gestaotrocasuser.email.user_created.subject');
         UserVerification::emailView('gestaotrocasuser::email.user-created');
@@ -37,7 +40,11 @@ class UserRepositoryEloquent extends BaseRepository implements UserRepository
             $attributes['password'] = User::generatePassword($attributes['password']);
         }
         $attributes = array_except($attributes,  'enrolment');
-        return parent::update($attributes, $id);
+        $model = parent::update($attributes, $id);
+        if (isset($attributes['roles'])) {
+            $model->roles()->sync($attributes['roles']);
+        }
+        return $model;
     }
 
     /**

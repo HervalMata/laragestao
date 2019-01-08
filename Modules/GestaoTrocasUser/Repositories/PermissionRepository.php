@@ -6,11 +6,11 @@ use Prettus\Repository\Contracts\RepositoryCriteriaInterface;
 use Prettus\Repository\Contracts\RepositoryInterface;
 
 /**
- * Interface UserRepository.
+ * Interface PermissionRepository.
  *
  * @package namespace GestaoTrocasUser\Repositories;
  */
-interface UserRepository extends RepositoryInterface, RepositoryCriteriaInterface
+interface PermissionRepository extends RepositoryInterface, RepositoryCriteriaInterface
 {
     //
 }

@@ -30,6 +30,7 @@ class UserRequest extends FormRequest
             'email' => 'required|email',
 //            'units' => 'required|array',
             'unit_id' => 'required|exists:units,id',
+            'role_id' => 'required|exists:roles,id',
         ];
     }
 

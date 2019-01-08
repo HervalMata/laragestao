@@ -18,6 +18,9 @@ return [
         'unit_id' => env('USER_UNIT', 1)
     ],
     'acl' => [
-        'role_admin' => env('ROLE_ADMIN', 'Admin')
+        'role_admin' => env('ROLE_ADMIN', 'Admin'),
+        'controllers_annotations' => [
+            __DIR__.'/../Modules/GestaoTrocasUser/Http/Controllers'
+        ]
     ]
 ];

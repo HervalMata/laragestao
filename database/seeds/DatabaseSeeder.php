@@ -11,6 +11,7 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
+        \Artisan::call('gestaotrocasuser:make-permission');
         $this->call(UnitsTableSeeder::class);
         $this->call(UsersTableSeeder::class);
     }

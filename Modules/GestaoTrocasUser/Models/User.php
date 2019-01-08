@@ -56,6 +56,11 @@ class User extends Authenticatable implements TableInterface
         return $this->unit->pluck('id')->all();
     }
 
+    public function formRolesAttribute()
+    {
+        return $this->role->pluck('id')->all();
+    }
+
     public function roles()
     {
         return $this->belongsToMany(Role::class);
@@ -90,6 +95,7 @@ class User extends Authenticatable implements TableInterface
             'Chave',
             'Nome',
             'Email',
+            'Role',
         ];
     }
 
@@ -113,6 +119,8 @@ class User extends Authenticatable implements TableInterface
                 return $this->name;
             case 'Email' :
                 return $this->email;
+            case 'Role' :
+                return $this->role->name;
         };
     }
 }

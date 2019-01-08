@@ -7,26 +7,40 @@ use GestaoTrocasUser\Http\Requests\UserDeleteRequest;
 use GestaoTrocasUser\Http\Requests\UserRequest;
 use GestaoTrocasUnidades\Models\Unit;
 use GestaoTrocasUnidades\Repositories\UnitRepository;
+use GestaoTrocasUser\Repositories\RoleRepository;
 use GestaoTrocasUser\Repositories\UserRepository;
 use Illuminate\Http\Request;
+use GestaoTrocasUser\Annotations\Mapping as Permission;
 
+/**
+ * @Permission\Controller(name="users-admin", description="Administração de usuários")
+ * @package GestaoTrocasUser\Http\Controllers
+ */
 class UsersController extends Controller
 {
     /**
      * @var UserRepository
      */
     private $repository;
+    /**
+     * @var UnitRepository
+     */
     private $unitRepository;
+    /**
+     * @var RoleRepository
+     */
+    private $roleRepository;
 
-    public function __construct(UserRepository $repository, UnitRepository $unitRepository)
+    public function __construct(UserRepository $repository, UnitRepository $unitRepository, RoleRepository $roleRepository)
     {
         $this->repository = $repository;
         $this->unitRepository = $unitRepository;
+        $this->roleRepository = $roleRepository;
     }
 
     /**
      * Display a listing of the resource.
-     *
+     * @Permission\Action(name="list", description="Ver a listagem de usuários")
      * @return \Illuminate\Http\Response
      */
     public function index(Request $request)
@@ -39,18 +53,19 @@ class UsersController extends Controller
 
     /**
      * Show the form for creating a new resource.
-     *
+     * @Permission\Action(name="store", description="Cadastrar usuários")
      * @return \Illuminate\Http\Response
      */
     public function create()
     {
         $units = $this->unitRepository->lists('name', 'id');
-        return view('modules.gestaotrocasuser.users.create', compact('units'));
+        $roles = $this->roleRepository->lists('name', 'id');
+        return view('modules.gestaotrocasuser.users.create', compact(['units', 'roles']));
     }
 
     /**
      * Store a newly created resource in storage.
-     *
+     * @Permission\Action(name="store", description="Cadastrar usuários")
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
@@ -75,7 +90,7 @@ class UsersController extends Controller
 
     /**
      * Show the form for editing the specified resource.
-     *
+     * @Permission\Action(name="update", description="Atualizar usuários")
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
@@ -85,12 +100,13 @@ class UsersController extends Controller
         //$this->unitRepository->withTrashed();
         //$units = $this->unitRepository->lists('name_trashed', 'id');
         $units = $this->unitRepository->lists('name', 'id');
-        return view('modules.gestaotrocasuser.users.edit', compact('user', 'units'));
+        $roles = $this->roleRepository->lists('name', 'id');
+        return view('modules.gestaotrocasuser.users.edit', compact('user', 'units', 'roles'));
     }
 
     /**
      * Update the specified resource in storage.
-     *
+     * @Permission\Action(name="update", description="Atualizar usuários")
      * @param  \Illuminate\Http\Request  $request
      * @param  int  $id
      * @return \Illuminate\Http\Response
@@ -105,7 +121,7 @@ class UsersController extends Controller
 
     /**
      * Remove the specified resource from storage.
-     *
+     * @Permission\Action(name="destroy", description="Excluir usuários")
      * @param UserDeleteRequest $request
      * @param  int $id
      * @return \Illuminate\Http\Response

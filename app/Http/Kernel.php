@@ -53,5 +53,6 @@ class Kernel extends HttpKernel
         'guest' => \GestaoTrocas\Http\Middleware\RedirectIfAuthenticated::class,
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
         'isVerified' => \Jrean\UserVerification\Middleware\IsVerified::class,
+        'auth.resource' => \GestaoTrocasUser\Http\Middleware\AuthorizationResource::class,
     ];
 }

@@ -2,8 +2,16 @@
 
 namespace GestaoTrocasUser\Providers;
 
+use Doctrine\Common\Annotations\AnnotationReader;
+use Doctrine\Common\Annotations\AnnotationRegistry;
+use Doctrine\Common\Annotations\CachedReader;
+use Doctrine\Common\Cache\FilesystemCache;
+use GestaoTrocasUser\Annotations\Mapping\Controller;
+use GestaoTrocasUser\Annotations\PermissionReader;
+use GestaoTrocasUser\Http\Controllers\UsersController;
 use GestaoTrocasUser\Providers\RouteServiceProvider;
 use Illuminate\Support\ServiceProvider;
+use Doctrine\Common\Annotations\Reader;
 
 class GestaoTrocasUserServiceProvider extends ServiceProvider
 {
@@ -25,6 +33,10 @@ class GestaoTrocasUserServiceProvider extends ServiceProvider
         $this->registerConfig();
         $this->registerViews();
         $this->publishMigrationsAndSeeders();
+
+        /** @var PermissionReader $reader */
+        $reader = app(PermissionReader::class);
+        $reader->getPermissions();
     }
 
     /**
@@ -37,6 +49,21 @@ class GestaoTrocasUserServiceProvider extends ServiceProvider
         $this->app->register(\Jrean\UserVerification\UserVerificationServiceProvider::class);
         $this->app->register(RepositoryServiceProvider::class);
         $this->app->register(RouteServiceProvider::class);
+        $this->app->register(AuthServiceProvider::class);
+        $this->registerAnnotations();
+        $this->app->bind(Reader::class, function () {
+            return new CachedReader(
+                new AnnotationReader(),
+                new FilesystemCache(storage_path('framework/cache/doctrine-annotations')),
+                $debug = env('APP_DEBUG')
+            );
+        });
+    }
+
+    protected function registerAnnotations()
+    {
+        $loader = require __DIR__.'/../../../vendor/autoload.php';
+        AnnotationRegistry::registerLoader([$loader, 'loadClass']);
     }
 
     /**
