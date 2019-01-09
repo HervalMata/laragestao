@@ -1,0 +1,15 @@
+{
+    "name": "HervalMata/gestaotrocasexchange",
+    "description": "",
+    "authors": [
+        {
+            "name": "Herval Mata",
+            "email": "hervalmataamparo@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "\\GestaoTrocasExchange\\": ""
+        }
+    }
+}

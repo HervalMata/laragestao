@@ -1,0 +1,15 @@
+{
+    "name": "GestaoTrocasExchange",
+    "alias": "gestaotrocasexchange",
+    "description": "",
+    "keywords": [],
+    "active": 1,
+    "order": 0,
+    "providers": [
+        "GestaoTrocasExchange\\Providers\\GestaoTrocasExchangeServiceProvider"
+    ],
+    "aliases":{},
+    "files": [
+        "start.php"
+    ]
+}

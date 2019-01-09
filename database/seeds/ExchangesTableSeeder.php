@@ -1,9 +1,9 @@
 <?php
 
 use Illuminate\Database\Seeder;
-use GestaoTrocasUnidades\Models\Unit;
+use GestaoTrocasExchange\Models\Exchange;
 
-class UnitsTableSeeder extends Seeder
+class ExchangesTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -12,6 +12,6 @@ class UnitsTableSeeder extends Seeder
      */
     public function run()
     {
-        factory(Unit::class, 50)->create();
+        factory(Exchange::class, 200)->create();
     }
 }

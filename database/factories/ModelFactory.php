@@ -39,3 +39,14 @@ $factory->define(\GestaoTrocasUser\Models\User::class, function (Faker\Generator
         'verified' => true
     ];
 });
+
+/** @var \Illuminate\Database\Eloquent\Factory $factory */
+$factory->define(\GestaoTrocasExchange\Models\Exchange::class, function (Faker\Generator $faker) {
+    $unitRepository = app(\GestaoTrocasUnidades\Repositories\UnitRepository::class);
+    /** @var \Illuminate\Database\Eloquent\Collection $units */
+    $unitId = $unitRepository->all()->random()->id;
+
+    return [
+        'unit_id' => $unitId,
+    ];
+});

@@ -175,6 +175,7 @@ return [
 
         \GestaoTrocasUnidades\Providers\GestaoTrocasUnidadesServiceProvider::class,
         \GestaoTrocasUser\Providers\GestaoTrocasUserServiceProvider::class,
+        \GestaoTrocasExchange\Providers\GestaoTrocasExchangeServiceProvider::class,
 
         /*
          * Application Service Providers...
